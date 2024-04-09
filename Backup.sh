@@ -9,6 +9,7 @@ FTP_PASSWORD="password" # FTP password
 FTP_DIR="/Datastore/asdfasdf" # FTP directory
 STATUS_API="https://exemple.com/api/push/TOEKN" # Gotify Push notification link
 STATUS_FILE="/tmp/backup_status.txt" # File to store the status of the last backup
+MAX_BACKUPS=8 # Maximum number of backups to keep
 
 # Get the current date and time
 DATE=$(date +%Y%m%d_%H%M%S)
@@ -41,10 +42,10 @@ rm /tmp/${DATE}.tar.gz
 
 echo "Checking the number of backups..."
 
-# Delete old backups if there are more than 8
+# Delete old backups if there are more than MAX_BACKUPS
 BACKUPS=$(curl -u ${FTP_USER}:${FTP_PASSWORD} ftp://${FTP_SERVER}${FTP_DIR}/ | wc -l)
 OLDEST=""
-while [ ${BACKUPS} -gt 8 ]
+while [ ${BACKUPS} -gt ${MAX_BACKUPS} ]
 do
     echo "Deleting the oldest backup..."
     OLDEST=$(curl -u ${FTP_USER}:${FTP_PASSWORD} ftp://${FTP_SERVER}${FTP_DIR}/ | awk '{print $9}' | head -n 1)
