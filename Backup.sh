@@ -7,7 +7,7 @@ FTP_SERVER="192.168.1.1" # FTP server
 FTP_USER="ftpuser" # FTP username
 FTP_PASSWORD="password" # FTP password
 FTP_DIR="/Datastore/asdfasdf" # FTP directory
-STATUS_API="https://exemple.com/api/push/TOEKN" # Gotify Push notification link
+STATUS_API="https://exemple.com/api/push/TOEKN" # Uptime Kuma Push notification link
 STATUS_FILE="/tmp/backup_status.txt" # File to store the status of the last backup
 MAX_BACKUPS=8 # Maximum number of backups to keep
 
