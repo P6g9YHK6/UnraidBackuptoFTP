@@ -1,6 +1,7 @@
 # UnraidBackupToFTP Automated Unraid Backup Script
 
 This script automates the process of creating backups from the Unraid USB boot drive and sending them to an FTP server. It also includes functionalities to maintain a desired number of backups and provides status updates via a Gotify push.
+The duration of the backups are sent to gotify as ping delay.
 
 ## Configuration
 
